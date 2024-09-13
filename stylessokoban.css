@@ -19,17 +19,32 @@ main {
 
  border: 8px solid #505050;
  border-radius: 8px;
+ padding: 2px 3px;
  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 
  background-color: gray;
 }
-.quadradomenor {
+
+.row {
+ display: flex;
+ min-height: 64px;
+ margin: 2px 0;
+}
+
+.cell {
+    height: 64px;
+    width: 64px;
+    margin: 0 1px;
+    border-radius: 2px;
+    background-color: aliceblue;
+}
+/* .quadradin {
   width: 64px;
   height: 64px;
   margin: 4px;
   margin-left: 4px;
   margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 4px; 
   background-color: lightgray;
   border-radius: 2px;
-}
+} */
