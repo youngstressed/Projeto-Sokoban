@@ -31,16 +31,16 @@ main {
  margin: 2px 0;
 }
 
-  .cell1 {
-    width: 64px;
-    margin: 0 1px;
- }
 .cell {
     height: 64px;
     width: 64px;
     margin: 0 1px;
     border-radius: 2px;
     background-color: aliceblue;
-    display: inline-flex;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+
+.remove {
+ background-color: unset;
+ box-shadow: none;
+ }
