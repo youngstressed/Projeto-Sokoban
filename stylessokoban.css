@@ -10,7 +10,10 @@ main {
     height: inherit;
 }
 #game{
- display: block;
+ display: flex;
+ justify-content: space-evenly;
+ width: 100%;
+ align-items: center;
 }
 
 .board {
@@ -21,7 +24,6 @@ main {
  border-radius: 8px;
  padding: 2px 3px;
  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-
  background-color: gray;
 }
 
