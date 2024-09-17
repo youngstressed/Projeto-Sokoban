@@ -18,7 +18,7 @@ function buildGameBoard(linhas, celulas, regras) {
             celula.classList.add('cell');
             linha.append(celula);
 
-            if (regras(celula, linhas, celulas, k, i)){
+            if (regras(linhas, celulas, k, i)){
                 celula.classList.add('remove');
             }
         }
@@ -28,23 +28,23 @@ function buildGameBoard(linhas, celulas, regras) {
 }
     
 
-    function regra1(celula, linhas, celulas, k, i) {
+    function regra1(linhas, celulas, k, i) {
        return k > 0 && k < 7 && i > 0 && i < 7; 
     }
 
-    function regra2(celula, linhas, celulas, k, i) {
+    function regra2(linhas, celulas, k, i) {
         return k == i;
         }
 
-    function regra3(celula, linhas, celulas, k, i) {
+    function regra3(linhas, celulas, k, i) {
         return k + i == linhas - 1;
     }
 
-    function regra4(celula, linhas, celulas, k, i) {
+    function regra4(linhas, celulas, k, i) {
         return k == i || k + i == linhas - 1;
     }
 
-    function regra5(celula, linhas, celulas, k, i) {
+    function regra5(linhas, celulas, k, i) {
         return k == i;
     }
   
