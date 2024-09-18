@@ -12,7 +12,7 @@ main {
 #game{
  display: flex;
  justify-content: space-evenly;
- width: 100vh;
+ width: 100vw;
  flex-wrap: wrap;
  align-items: center;
  height: 100vh;
@@ -32,17 +32,18 @@ main {
 
 .row {
  display: flex;
- min-height: 64px;
+ height: auto;
  margin: 2px 0;
 }
 
 .cell {
-    height: 64px;
-    width: 64px;
+    height: min(5vw, 5vh);
+    width: min(5vw, 5vh);
     margin: 0 1px;
     border-radius: 2px;
     background-color: aliceblue;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
 .remove {
