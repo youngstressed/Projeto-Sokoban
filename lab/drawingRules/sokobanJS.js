@@ -1,7 +1,9 @@
-buildGameBoard(8, 8, regra1);
-buildGameBoard(8, 8, regra2);
-buildGameBoard(8, 8, regra3);
-buildGameBoard(8, 8, regra4);
+buildGameBoard(8, 8, regra0);
+// buildGameBoard(8, 8, regra1);
+// buildGameBoard(8, 8, regra2);
+// buildGameBoard(8, 8, regra3);
+// buildGameBoard(8, 8, regra4);
+// buildGameBoard(8, 8, regra5);
 
 function buildGameBoard(linhas, celulas, regras) {
     const game = document.getElementById('game');
@@ -26,25 +28,25 @@ function buildGameBoard(linhas, celulas, regras) {
 
     game.append(board);
 }
-    
-
-    function regra1(linhas, celulas, k, i) {
-       return k > 0 && k < 7 && i > 0 && i < 7; 
+    function regra0(linhas, celulas, k, i) {
+    return k == 0 || k == 7 || i == 0 || i == 7
     }
 
-    function regra2(linhas, celulas, k, i) {
-        return k == i;
-        }
+    // function regra1(linhas, celulas, k, i) {
+    //    return k > 0 && k < 7 && i > 0 && i < 7; 
+    // }
 
-    function regra3(linhas, celulas, k, i) {
-        return k + i == linhas - 1;
-    }
+    // function regra2(linhas, celulas, k, i) {
+    //     return k == i;
+    //     }
 
-    function regra4(linhas, celulas, k, i) {
-        return k == i || k + i == linhas - 1;
-    }
+    // function regra3(linhas, celulas, k, i) {
+    //     return k + i == linhas - 1;
+    // }
 
-    function regra5(linhas, celulas, k, i) {
-        return k == i;
-    }
-  
+    // function regra4(linhas, celulas, k, i) {
+    //     return k == i || k + i == linhas - 1;
+    // }
+    // function regra5(linhas, celulas, k, i) {
+    //     return (k + i) % 2 == 0
+    //     }
