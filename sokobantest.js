@@ -1,19 +1,22 @@
-let x = 3;
-let y = 4;
-const player = document.querySelector('.player');
-console.log(player);
+function Jogador(posX, posY){
+    this.posX = posX;
+    this.posY = posY;
+}
+const player = new Jogador(3, 4);
 
-player.addEventListener("click", function(){
-    alert("Clicou no jogador");
-})
+const element = document.querySelector('.player');
+
+// player.addEventListener("click", function(){
+//     alert("Clicou no jogador");
+// })
 window.addEventListener("keydown", function(event){
-//    alert("Pressionou Tecla");
-console.log(event);
-
-if (event.code === 'ArrowUp') x--;
-if (event.code === 'ArrowDown') x++;
-if (event.code === 'ArrowLeft') y--;
-if (event.code === 'ArrowRight') y++;
-
-console.log(event.code, x , y);
+    nextPosition (event.code);
 })
+ function nextPosition (keycode){
+if (keycode === 'ArrowUp') player.posX--;
+if (keycode === 'ArrowDown') player.posX++;
+if (keycode === 'ArrowLeft') player.posY--;
+if (keycode === 'ArrowRight') player.posY++;
+
+console.log(keycode,player);
+}
