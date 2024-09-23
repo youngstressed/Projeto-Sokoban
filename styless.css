@@ -12,7 +12,7 @@ main {
 }
 #game{
  display: flex;
- 
+
  justify-content: space-evenly;
  width: 100vw;
  flex-wrap: wrap;
@@ -73,6 +73,10 @@ main {
 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     background: linear-gradient(360deg,  hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
+
+    transition:
+    left 150ms ease-in-out 50ms,
+    top 150ms ease-in-out 50ms;
 }
 
 .remove {

@@ -5,8 +5,8 @@ const element = document.querySelector('.player');
 const dist_salto = 66;
 const margin_fix =  4;
 
-element.style.top = calculaPosicao;
-element.style.left = calculaPosicao;
+element.style.top = calculaPosicao(0);
+element.style.left = calculaPosicao(0);
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
