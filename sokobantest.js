@@ -27,6 +27,7 @@ function Jogador(posX, posY) {
         if (keycode === 'ArrowDown') x++;
         if (keycode === 'ArrowLeft') y--;
         if (keycode === 'ArrowRight') y++;
+        
         console.log(keycode, player);
         return { x, y };
     }
@@ -46,6 +47,5 @@ function verifyPosition(position) {
 }
 
 function calculaPosicao(qtd) {
-    return qtd * dist_salto + margin_fix + "px";  
-    
+    return qtd * dist_salto + margin_fix + "px";      
 }
