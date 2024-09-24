@@ -3,9 +3,9 @@ function buildGameBoard(linhas, celulas, regras) {
     const game = document.getElementById('game');
     const board = document.createElement('div');
     const jogador = document.createElement('div');
-    jogador.classList.add('player');
 
-    board.append(jogador);
+
+    jogador.classList.add('player');
     board.classList.add('board');
 
     for (let k = 0; k < linhas; k++) {
@@ -25,9 +25,9 @@ function buildGameBoard(linhas, celulas, regras) {
     }
 
     game.append(board);
+    board.append(jogador);
 }
-function regra0(k, i) {
-    return k == 0 || k == 7 || i == 0 || i == 7;
+function regra0() {
 }
 const player = new Jogador(0, 0);
 const element = document.querySelector('.player');
