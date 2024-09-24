@@ -5,12 +5,14 @@ body {
 
 main {
     display: flex;
+
     justify-content: center;
     align-items: center;
     height: inherit;
 }
 #game{
  display: flex;
+
  justify-content: space-evenly;
  width: 100vw;
  flex-wrap: wrap;
@@ -19,20 +21,25 @@ main {
 }
 
 .board {
+ position: relative;
+
  min-width:  256px;
  min-height: 256px;
  margin: 24px;
+
  border: 8px solid #505050;
  border-radius: 8px;
  padding: 2px 3px;
+
  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
  background: hsla(48, 78%, 82%, 1);
-background: linear-gradient(360deg, hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
+ background: linear-gradient(360deg, hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
 }
 
 .row {
  display: flex;
  flex-direction: row;
+
  height: auto;
  margin: 2px 0;
 }
@@ -41,22 +48,35 @@ background: linear-gradient(360deg, hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%
     height: 64px;
     width: 64px;
     margin: 0 1px;
+
     border-radius: 2px;
     background-color: aliceblue;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
 }
 
 .player {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     box-sizing: border-box;
+
     height: 64px;
     width: 64px;
+
     border-radius: 50%;
     border: solid 8px black;
+
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(360deg, rgb(255, 197, 6) 0%, rgb(158, 0, 0) 100%);
+    background: linear-gradient(360deg,  hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
+
+    transition:
+    left 150ms ease-in-out 50ms,
+    top 150ms ease-in-out 50ms;
 }
 
 .remove {
