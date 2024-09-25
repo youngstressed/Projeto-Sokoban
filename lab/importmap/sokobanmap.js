@@ -1,17 +1,14 @@
 const boardMap = [
-    [ "#", "#", "#", "#", "#", "#", "#", "#" ],
-    [ "#", ".", ".", ".", ".", ".", ".", "#" ],
-    [ "#", ".", ".", ".", "#", ".", ".", "#" ],
-    [ "#", ".", "#", "G", ".", ".", ".", "#" ],
-    [ "#", ".", ".", "G", "B", "#", ".", "#" ],
-    [ "#", ".", ".", "#", ".", "B", ".", "#" ],
-    [ "#", ".", ".", "P", ".", ".", ".", "#" ],
-    [ "#", "#", "#", "#", "#", "#", "#", "#" ]
+    ["#", "#", "#", "#", "#", "#", "#", "#"],
+    ["#", ".", ".", ".", ".", ".", ".", "#"],
+    ["#", ".", ".", ".", "#", ".", ".", "#"],
+    ["#", ".", "#", "G", ".", ".", ".", "#"],
+    ["#", ".", ".", "G", "B", "#", ".", "#"],
+    ["#", ".", ".", "#", ".", "B", ".", "#"],
+    ["#", ".", ".", "P", ".", ".", ".", "#"],
+    ["#", "#", "#", "#", "#", "#", "#", "#"]
 ]
-    function parede () {
-    if(boardMap[0][7] == '#' )
-        cell.classList.add('wall');
-    }
+
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 const NUM_ROWS = boardMap.length;
@@ -31,12 +28,14 @@ function buildGameBoard(linhas, celulas, regras) {
     const game = document.getElementById('game');
 
     const board = createGameElement('div', 'board', game);
- 
+
     for (let k = 0; k < linhas; k++) {
-        const linha = createGameElement('div','row', board);
+        const linha = createGameElement('div', 'row', board);
 
         for (let i = 0; i < celulas; i++) {
-            const celula = createGameElement('div','cell', linha);
+            const celula = createGameElement('div', 'cell', linha);
+            const char = boardMap[k][i];
+            if (char === '#')celula.classList.add('wall');
         }
     }
 }
