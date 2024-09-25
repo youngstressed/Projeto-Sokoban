@@ -57,6 +57,9 @@ main {
     justify-content: center;
     align-items: center;
 }
+.box { background-color: chocolate; }
+.goal { background-color: burlywood; }
+.wall { background-color: hsl(0, 0%, 59%) }
 
 .player {
     position: absolute;

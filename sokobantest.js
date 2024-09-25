@@ -1,14 +1,25 @@
+const boardMap = [
+    ["#", "#", "#", "#", "#", "#", "#", "#"],
+    ["#", ".", ".", ".", ".", ".", ".", "#"],
+    ["#", ".", ".", ".", "#", ".", ".", "#"],
+    ["#", ".", "#", "G", ".", ".", ".", "#"],
+    ["#", ".", ".", "G", "B", "#", ".", "#"],
+    ["#", ".", ".", "#", ".", "B", ".", "#"],
+    ["#", ".", ".", "P", ".", ".", ".", "#"],
+    ["#", "#", "#", "#", "#", "#", "#", "#"]
+]
+
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
-const NUM_ROWS = 6;
-const NUM_COLS = 6;
-buildGameBoard(NUM_ROWS, NUM_COLS, regra0);
+const NUM_ROWS = boardMap.length;
+const NUM_COLS = boardMap[0].length;
+buildGameBoard(NUM_ROWS, NUM_COLS);
 
-const player = new Jogador(0, 0);
+const player = new Jogador(1, 1);
 const element = document.querySelector('.player');
 
-element.style.top = calculaPosicao(0);
-element.style.left = calculaPosicao(0);
+element.style.top = calculaPosicao(player.x);
+element.style.left = calculaPosicao(player.y);
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
@@ -44,7 +55,7 @@ function Jogador(posX, posY) {
 
 function verifyPosition(position) {
     let { x, y } = position;
-    return x >= 0 && x < NUM_ROWS && y >= 0 && y < NUM_COLS;
+    return boardMap[x][y] != '#';
 }
 
 function calculaPosicao(qtd) {
@@ -59,7 +70,7 @@ function createGameElement(elementName, className, parentNode) {
     return element;
 }
 
-function buildGameBoard(linhas, celulas, regras) {
+function buildGameBoard(linhas, celulas) {
     const game = document.getElementById('game');
 
     const board = createGameElement('div', 'board', game);
@@ -70,12 +81,13 @@ function buildGameBoard(linhas, celulas, regras) {
 
         for (let i = 0; i < celulas; i++) {
             const celula = createGameElement('div','cell', linha);
-
-            if (regras(linhas, celulas, k, i)) {
-                celula.classList.add('remove');
+            const char = boardMap[k][i];
+  
+            if (char === '#')celula.classList.add('wall');
+            if (char === 'B')celula.classList.add('box');
+            if (char === 'G')celula.classList.add('goal')
             }
         }
     }
-}
 function regra0() {
 }
