@@ -35,7 +35,12 @@ function buildGameBoard(linhas, celulas, regras) {
         for (let i = 0; i < celulas; i++) {
             const celula = createGameElement('div', 'cell', linha);
             const char = boardMap[k][i];
+            const caixa = boardMap[k][i];
+            const objetivo = boardMap[k][i]; 
+
             if (char === '#')celula.classList.add('wall');
+            if (caixa === 'B')celula.classList.add('box');
+            if (objetivo === 'G')celula.classList.add('goal')
         }
     }
 }
