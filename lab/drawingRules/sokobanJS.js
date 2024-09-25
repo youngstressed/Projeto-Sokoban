@@ -28,7 +28,7 @@ function buildGameBoard(linhas, celulas, regras) {
 
     game.append(board);
 }
-    function regra0(linhas, celulas, k, i) {
+    function regra0(k, i) {
     return k == 0 || k == 7 || i == 0 || i == 7
     }
 
