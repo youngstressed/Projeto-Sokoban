@@ -79,5 +79,3 @@ function buildGameBoard(linhas, celulas, regras) {
 }
 function regra0() {
 }
-
-// functio
