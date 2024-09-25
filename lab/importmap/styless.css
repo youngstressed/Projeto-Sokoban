@@ -59,7 +59,7 @@ main {
 }
 .box { background-color: chocolate; }
 .goal { background-color: burlywood; }
-.wall { background-color: hsla(0, 0%, 0%, 0.5) }
+.wall { background-color: hsl(0, 0%, 59%) }
 
 .player {
     position: absolute;
@@ -86,5 +86,3 @@ main {
  background-color: unset;
  box-shadow: none;
  }
-
-
