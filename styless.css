@@ -58,7 +58,7 @@ main {
     align-items: center;
 }
 
-.box {
+.block {
     background-color: chocolate;
 }
 
@@ -77,14 +77,14 @@ main {
 
     box-sizing: border-box;
 
-    height: 64px;
-    width: 64px;
-
-    border-radius: 50%;
+    margin: 2px;
+    height: 60px;
+    width: 60px;
+    border-radius: 16px;
     border: solid 8px #505050;
 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(360deg, hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
+    background-color: chocolate;
 
     transition:
         left 150ms ease-in-out 50ms,
@@ -95,3 +95,11 @@ main {
     background-color: unset;
     box-shadow: none;
 }
+/* }
+height: 62px;
+    width: 62px;
+    margin-left: auto;
+    border-radius: 16px;
+    box-sizing: border-box;
+    border: solid 6px;
+    background-color: chocolate; */
