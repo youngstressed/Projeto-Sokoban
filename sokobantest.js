@@ -9,23 +9,26 @@ const boardMap = [
     ["#", "#", "#", "#", "#", "#", "#", "#"]
 ]
 
-const DIST_SALTO = 66;
-const MARGIN_FIX = 4;
 const NUM_ROWS = boardMap.length;
 const NUM_COLS = boardMap[0].length;
 
-const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
-const player = new Jogador(pieces.player.x, pieces.player.y);
-const element = document.querySelector('.player');
+const DIST_SALTO = 66;
+const MARGIN_FIX = 4;
 
-element.style.top = calculaPosicao(player.x);
-element.style.left = calculaPosicao(player.y);
+const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+const board = document.querySelector('.board')
+
+const playerElement = createGameElement('div', 'player', board);
+const player = new Jogador(pieces.player.x, pieces.player.y);
+
+playerElement.style.top = calculaPosicao(player.x);
+playerElement.style.left = calculaPosicao(player.y);
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next, element);
+        player.moveTo(next, playerElement);
     }
 });
 
@@ -68,34 +71,4 @@ function createGameElement(elementName, className, parentNode) {
     parentNode.append(element);
 
     return element;
-}
-
-function buildGameBoard(linhas, celulas) {
-    const positionPieces = {}
-
-    const game = document.getElementById('game');
-
-    const board = createGameElement('div', 'board', game);
-   
-    for (let k = 0; k < linhas; k++) {
-        const linha = createGameElement('div', 'row', board);
-
-        for (let i = 0; i < celulas; i++) {
-            const celula = createGameElement('div', 'cell', linha);
-            const char = boardMap[k][i];
-
-            if (char === '#') celula.classList.add('wall');
-            if (char === 'B') celula.classList.add('block');
-            if (char === 'G') celula.classList.add('goal');
-            if (char === 'P') positionPieces.player = { x: k, y: i };
-        }
-    }
-   
-    createGameElement('div','player', board);
-
-    return positionPieces;
-}
-
-
-function regra0() {
 }
