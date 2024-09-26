@@ -13,9 +13,9 @@ const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 const NUM_ROWS = boardMap.length;
 const NUM_COLS = boardMap[0].length;
-buildGameBoard(NUM_ROWS, NUM_COLS);
 
-const player = new Jogador(1, 1);
+const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+const player = new Jogador(pieces.player.x, pieces.player.y);
 const element = document.querySelector('.player');
 
 element.style.top = calculaPosicao(player.x);
@@ -71,23 +71,31 @@ function createGameElement(elementName, className, parentNode) {
 }
 
 function buildGameBoard(linhas, celulas) {
+    const positionPieces = {}
+
     const game = document.getElementById('game');
 
     const board = createGameElement('div', 'board', game);
-    const jogador = createGameElement('div','player', board);
-    
+   
     for (let k = 0; k < linhas; k++) {
-        const linha = createGameElement('div','row', board);
+        const linha = createGameElement('div', 'row', board);
 
         for (let i = 0; i < celulas; i++) {
-            const celula = createGameElement('div','cell', linha);
+            const celula = createGameElement('div', 'cell', linha);
             const char = boardMap[k][i];
-  
-            if (char === '#')celula.classList.add('wall');
-            if (char === 'B')celula.classList.add('box');
-            if (char === 'G')celula.classList.add('goal')
-            }
+
+            if (char === '#') celula.classList.add('wall');
+            if (char === 'B') celula.classList.add('block');
+            if (char === 'G') celula.classList.add('goal');
+            if (char === 'P') positionPieces.player = { x: k, y: i };
         }
     }
+   
+    createGameElement('div','player', board);
+
+    return positionPieces;
+}
+
+
 function regra0() {
 }
