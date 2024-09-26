@@ -1,10 +1,3 @@
-
-
-function verifyPosition(position) {
-let { x, y } = position;
-return boardMap[x][y] != '#';
-}
-
 function Piece(posX, posY) {
     this.x = posX;
     this.y = posY;

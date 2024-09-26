@@ -19,8 +19,16 @@ window.addEventListener("keydown", function (event) {
     if (verifyPosition(next)) {
         player.moveTo(next, playerElement);
     }
-    });
-    
+});
+
+
+
+function verifyPosition(position) {
+    let { x, y } = position;
+    return boardMap[x][y] != '#';
+}
+
+
 function calculaPosicao(qtd) {
     return qtd * DIST_SALTO + MARGIN_FIX + "px";
 }
