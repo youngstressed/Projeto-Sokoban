@@ -10,18 +10,15 @@ const board = document.querySelector('.board')
 const player = new Piece(pieces.player.x, pieces.player.y);
 const playerElement = createBoardPiece(player, 'player');
 
-// const playerElement = createGameElement('div', 'player', board);
-
-// playerElement.style.top = calculaPosicao(player.x);
-// playerElement.style.left = calculaPosicao(player.y);
-
 function createBoardPiece(piece, className) {
-    const element = createGameElement('div', className, board);
+    piece.insertElementInto(className, board);
+    
+    // const element = createGameElement('div', className, board);
 
-    element.style.top = calculaPosicao(piece.x);
-    element.style.left = calculaPosicao(piece.y);
+    // element.style.top = calculaPosicao(piece.x);
+    // element.style.left = calculaPosicao(piece.y);
 
-    return element;
+    return piece.element;
 }
 
 window.addEventListener("keydown", function (event) {
