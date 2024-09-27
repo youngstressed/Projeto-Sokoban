@@ -28,7 +28,6 @@ function verifyPosition(position) {
     return boardMap[x][y] != '#';
 }
 
-
 function calculaPosicao(qtd) {
     return qtd * DIST_SALTO + MARGIN_FIX + "px";
 }
