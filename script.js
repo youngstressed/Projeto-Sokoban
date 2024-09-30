@@ -1,7 +1,7 @@
-const NUM_ROWS = boardMap.length;
-const NUM_COLS = boardMap[0].length;
+import Piece from "./piece.js";
+import { buildGameBoard, boardMap } from "./board.js";
 
-const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+const pieces = buildGameBoard();
 const board = document.querySelector('.board')
 
 
@@ -22,9 +22,7 @@ window.addEventListener("keydown", function (event) {
     }
 });
 
-
-
 function verifyPosition(position) {
-    let { x, y } = position;
-    return boardMap[x][y] != '#';
+    let {x: i , y: k} = position;
+    return boardMap[k][i] != '#';
 }
