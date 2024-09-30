@@ -20,7 +20,9 @@ export function createGameElement(elementName, className, parentNode) {
 }
 
 export function buildGameBoard() {
-    const positionPieces = {}
+    const pieces = {
+        boxes: []
+    };
 
     const game = document.getElementById('game');
 
@@ -32,16 +34,16 @@ export function buildGameBoard() {
         for (let i = 0; i < NUM_COLS; i++) {
             const celula = createGameElement('div', 'cell', linha);
             const char = boardMap[k][i];
-            const position = {x: i , y: k};
+            const position = { x: i, y: k };
 
 
             if (char === '#') celula.classList.add('wall');
-            if (char === 'B') celula.classList.add('block');
+            // if (char === 'B') celula.classList.add('block');
             if (char === 'G') celula.classList.add('goal');
-            if (char === 'P') positionPieces.player = position;
-            if (char === 'b') positionPieces.boxes.push(position);
+            if (char === 'P') pieces.player = position;
+            if (char === 'B') pieces.boxes.push(position);
         }
     }
 
-    return positionPieces;
+    return pieces;
 }

@@ -1,4 +1,4 @@
-import {createGameElement} from "./board.js";
+import { createGameElement } from "./board.js";
 
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
@@ -36,7 +36,7 @@ function Piece(posX, posY) {
         this.updateElementPosition();
     }
 
-    this.updateElementPosition = function (){
+    this.updateElementPosition = function () {
         this.element.style.top = calculaPosicao(this.y);
         this.element.style.left = calculaPosicao(this.x);
     }

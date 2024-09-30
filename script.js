@@ -3,26 +3,36 @@ import { buildGameBoard, boardMap } from "./board.js";
 
 const pieces = buildGameBoard();
 const board = document.querySelector('.board')
+console.log(pieces);
 
+const playerPiece = createBoardPiece(pieces.player, 'player');
+const boxes = [];
+    for(let box of pieces.boxes){
+        let piece = createBoardPiece(box, 'box'); 
+        boxes.push(piece);
+    };
 
-const player = createBoardPiece(pieces.player, 'player');
+    window.addEventListener("keydown", function (event) {
+        handleKeyDownEvent(event.code);
+    });
 
 function createBoardPiece(piecePosition, className) {
     const piece = new Piece(piecePosition.x, piecePosition.y);
     piece.insertElementInto(className, board);
-
+    
     return piece;
+
 }
 
-window.addEventListener("keydown", function (event) {
-    const next = player.nextPosition(event.code);
+function handleKeyDownEvent(keycode){
+    const next = playerPiece.nextPosition(keycode);
 
     if (verifyPosition(next)) {
-        player.moveTo(next);
+        playerPiece.moveTo(next);
     }
-});
+}
 
 function verifyPosition(position) {
-    let {x: i , y: k} = position;
+    let { x: i, y: k } = position;
     return boardMap[k][i] != '#';
 }
