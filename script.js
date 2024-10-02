@@ -17,7 +17,7 @@ window.addEventListener("keydown", function (event) {
     handlePieceMovement(event.code);
 });
 
-console.log(pieces.boxes);
+// console.log(pieces.boxes);
 
 
 function findBoxAtPosition(position) {
@@ -38,6 +38,14 @@ function handlePieceMovement(keycode) {
         if (boxCanMove) {
             foundBox.moveTo(nextBoxPosition);
             player.moveTo(nextPlayerPosition);
+
+            const caixasCertas = contagemDeCaixasCorretas();
+
+            console.log(caixasCertas);
+
+            if (caixasCertas == 3) {
+                alert('Você Venceu!');
+            } 
         }
     }
     else {
@@ -68,3 +76,18 @@ function verifyPosition(position) {
     let { x: i, y: k } = position;
     return boardMap[k][i] != '#';
 }
+
+function contagemDeCaixasCorretas() {
+    let count = 0;
+
+    for (const position of boxes) {
+        let { x: i, y: k } = position;
+
+        // console.log(i, k);
+        if (boardMap[k][i] === "G") count++;
+
+    }
+    return count;
+}
+
+

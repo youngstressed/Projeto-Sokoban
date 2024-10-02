@@ -18,7 +18,7 @@ function Piece(posX, posY) {
         if (keycode === 'KeyS') y++;
         if (keycode === 'KeyA') x--;
         if (keycode === 'KeyD') x++;
-        
+
         return { x, y };
     }
 
