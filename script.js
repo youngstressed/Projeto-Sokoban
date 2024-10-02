@@ -2,56 +2,65 @@ import Piece from "./piece.js";
 import { buildGameBoard, boardMap } from "./board.js";
 
 const pieces = buildGameBoard();
-const board = document.querySelector('.board')
+const board = document.querySelector('.board');
 
-const playerPiece = createBoardPiece(pieces.player, 'player');
+const player = createBoardPiece(pieces.player, 'player')
 const boxes = [];
-for (let box of pieces.boxes) {
-    let piece = createBoardPiece(box, 'box');
-    boxes.push(piece);
-};
+
+for (let b = 0; b < pieces.boxes.length; b++) {
+    boxes.push(createBoardPiece(pieces.boxes[b], 'box'));
+}
 
 window.addEventListener("keydown", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
 
     handlePieceMovement(event.code);
 });
+
+console.log(pieces.boxes);
+
+
 function findBoxAtPosition(position) {
 
     return boxes.find((box) => box.x === position.x && box.y === position.y);
 }
 
+
 function handlePieceMovement(keycode) {
 
-    const next = playerPiece.nextPosition(keycode);
-
-    const foundBox = findBoxAtPosition(next);
+    const nextPlayerPosition = player.nextPosition(keycode);
+    const foundBox = findBoxAtPosition(nextPlayerPosition);
 
     if (foundBox) {
+        const nextBoxPosition = foundBox.nextPosition(keycode);
+        const boxCanMove = verifyPosition(nextBoxPosition) && !findBoxAtPosition(nextBoxPosition);
 
-        console.log(foundBox);
-
+        if (boxCanMove) {
+            foundBox.moveTo(nextBoxPosition);
+            player.moveTo(nextPlayerPosition);
+        }
     }
     else {
+        const playerCanMove = verifyPosition(nextPlayerPosition);
 
-        if (verifyPosition(next)) {
-            playerPiece.moveTo(next);
+        if (playerCanMove) {
+            player.moveTo(nextPlayerPosition);
         }
     }
 }
+
 function createBoardPiece(piecePosition, className) {
     const piece = new Piece(piecePosition.x, piecePosition.y);
-    piece.insertElementInto(className, board);
+    piece.insertElementInto(className, board)
 
     return piece;
-
 }
 
-function handleKeyDownEvent(keycode) {
-    const next = playerPiece.nextPosition(keycode);
+function handleKeydownEvent(keycode) {
+    const next = player.nextPosition(keycode);
 
     if (verifyPosition(next)) {
-        playerPiece.moveTo(next);
+        player.moveTo(next);
     }
 }
 
