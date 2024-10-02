@@ -1,7 +1,7 @@
 import Piece from "./piece.js";
 import { buildGameBoard, boardMap } from "./board.js";
 
-const pieces = buildGameBoard();
+const {pieces, numberOfGoals} = buildGameBoard();
 const board = document.querySelector('.board');
 
 const player = createBoardPiece(pieces.player, 'player')
@@ -43,7 +43,7 @@ function handlePieceMovement(keycode) {
 
             console.log(caixasCertas);
 
-            if(caixasCertas == 3) {
+            if(caixasCertas == numberOfGoals) {
                 setTimeout(levantaPlaquinha, 200);
             }
         }
