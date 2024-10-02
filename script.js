@@ -43,9 +43,9 @@ function handlePieceMovement(keycode) {
 
             console.log(caixasCertas);
 
-            if (caixasCertas == 3) {
-                alert('Você Venceu!');
-            } 
+            if(caixasCertas == 3) {
+                setTimeout(levantaPlaquinha, 200);
+            }
         }
     }
     else {
@@ -88,6 +88,10 @@ function contagemDeCaixasCorretas() {
 
     }
     return count;
+}
+
+function levantaPlaquinha (){
+        alert('Você Venceu!');
 }
 
 
