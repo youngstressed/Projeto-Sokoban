@@ -33,7 +33,7 @@ main {
     padding: 2px 3px;
 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background: rgb(85, 110, 138);
+    background: rgb(53, 53, 53);
 }
 
 .row {
@@ -58,16 +58,30 @@ main {
     align-items: center;
 }
 
-.block {
+.box {
+    position: absolute;
+
+    box-sizing: border-box;
+
+    margin: 2px;
+    height: 60px;
+    width: 60px;
+
+    border-radius: 16px;
+    border: solid 8px black;
     background-color: chocolate;
+
+    transition:
+        left 150ms ease-in-out 50ms,
+        top 150ms ease-in-out 50ms;
 }
 
 .goal {
-    background-color: burlywood;
+    background-color: rgba(255, 0, 0, 0.548);
 }
 
 .wall {
-    background-image: url(./tile_0040.png)
+    background-color: gray;
 }
 
 .player {
@@ -80,11 +94,11 @@ main {
     margin: 2px;
     height: 60px;
     width: 60px;
-    border-radius: 16px;
+    border-radius: 32px;
     border: solid 8px #505050;
 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background-color: chocolate;
+    background-color: rgb(192, 0, 0);
 
     transition:
         left 150ms ease-in-out 50ms,
