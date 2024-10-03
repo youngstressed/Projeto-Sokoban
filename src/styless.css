@@ -67,9 +67,8 @@ main {
     height: 60px;
     width: 60px;
 
-    border-radius: 16px;
-    border: solid 8px black;
-    background-color: chocolate;
+
+    background-image: url('./assets/frasco.png');
 
     transition:
         left 150ms ease-in-out 50ms,
@@ -77,7 +76,8 @@ main {
 }
 
 .goal {
-    background-color: rgba(255, 0, 0, 0.548);
+    background-size: cover ;
+    background-image: url('./assets/barrilradioativo.png');
 }
 
 .wall {
@@ -91,12 +91,12 @@ main {
 
     box-sizing: border-box;
 
-    margin: 2px;
+    margin: 5px;
     height: 60px;
-    width: 60px;
+    width: 59px;
     
     /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
-    background-image: url('./hisenberg.png');
+    background-image: url('./assets/hisenberg.png');
 
     transition:
         left 150ms ease-in-out 50ms,
