@@ -7,7 +7,7 @@ console.log(lines);
 return lines;
 }
 
-export const boardMap = strig2BoarMap(lvl0, lvl1, lvl2);
+const boardMap = strig2BoarMap(lvl0, lvl1, lvl2);
 const NUM_ROWS = boardMap.length;
 
 export function createGameElement(elementName, className, parentNode) {
@@ -52,5 +52,5 @@ export function buildGameBoard() {
         }
     }
 
-    return { pieces, numberOfGoals};
+    return { boardMap, pieces, numberOfGoals};
 }
