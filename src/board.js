@@ -18,7 +18,8 @@ export function createGameElement(elementName, className, parentNode) {
     return element;
 }
 
-export function buildGameBoard() {
+export function buildGameBoard(mapa) {
+    const boardMap = strig2BoarMap(mapa);
     const pieces = {
         boxes: []
     };
