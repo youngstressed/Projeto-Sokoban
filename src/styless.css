@@ -94,11 +94,9 @@ main {
     margin: 2px;
     height: 60px;
     width: 60px;
-    border-radius: 32px;
-    border: solid 8px #505050;
-
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background-color: rgb(192, 0, 0);
+    
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
+    background-image: url('./hisenberg.png');
 
     transition:
         left 150ms ease-in-out 50ms,
