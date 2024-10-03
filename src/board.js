@@ -1,13 +1,5 @@
-const lvl0 = `
-__#####
-###P..#_
-#..B#.##
-#.#GB..#
-#..G.#.#
-#..#...#
-_#...###
-_#####
-`
+import { lvl0, lvl1, lvl2 } from "../level.js";
+
 function strig2BoarMap (level) {
 const lines = level.trim().split('\n');
 console.log(lines);
@@ -15,18 +7,7 @@ console.log(lines);
 return lines;
 }
 
-export const boardMap = strig2BoarMap(lvl0);
-
-// export const boardMap = [
-//     [" ", " ", "#", "#", "#", "#", "#", " "],
-//     ["#", "#", "#", ".", ".", ".", "#"],
-//     ["#", ".", ".", ".", "#", ".", "#"],
-//     ["#", ".", "#", ".", "G", ".", ",", "#"],
-//     ["#", ".", ".", ".", "B", "#", ".", "#"],
-//     ["#", ".", "G", "B", "P", ".", ".", "#"],
-//     ["#", ".", ".", ".", ".", "#", "#", "#"],
-//     ["#", "#", "#", "#", "#", "#",]
-// ];
+export const boardMap = strig2BoarMap(lvl0, lvl1, lvl2);
 const NUM_ROWS = boardMap.length;
 
 export function createGameElement(elementName, className, parentNode) {
