@@ -1,6 +1,7 @@
 body {
     margin: 0;
     height: 100vh;
+    background-image: url(./assets/pxArt.png);
 }
 
 main {
@@ -28,12 +29,12 @@ main {
     min-height: 256px;
     margin: 24px;
 
-    border: 8px solid #505050;
+    border: 8px solid #bb0000;
     border-radius: 8px;
     padding: 2px 3px;
 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background: rgb(53, 53, 53);
+    background: rgb(112, 42, 42);
 }
 
 .row {
@@ -50,7 +51,7 @@ main {
     margin: 0 1px;
 
     border-radius: 2px;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 
     box-sizing: border-box;
@@ -81,7 +82,7 @@ main {
 }
 
 .wall {
-    background-color: gray;
+    background-color: rgb(68, 68, 68);
 }
 
 .player {
@@ -91,7 +92,7 @@ main {
 
     box-sizing: border-box;
 
-    margin: 5px;
+    margin: 8px;
     height: 60px;
     width: 59px;
     
