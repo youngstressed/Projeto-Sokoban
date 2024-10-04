@@ -1,16 +1,7 @@
-import Piece from "./piece.js";
-import { buildGameBoard} from "./board.js";
-import { lvl0, lvl1, lvl2 } from "../level.js";
+import { buildGameBoard } from "./board.js";
+import { lvl0, lvl1, lvl2 } from "./level.js";
 
-const { boardMap, pieces, numberOfGoals } = buildGameBoard(lvl0);
-const board = document.querySelector('.board');
-
-const player = createBoardPiece(pieces.player, 'player')
-const boxes = [];
-
-for (let b = 0; b < pieces.boxes.length; b++) {
-    boxes.push(createBoardPiece(pieces.boxes[b], 'box'));
-}
+const { boardMap, pieces: { boxes, player }, numberOfGoals } = buildGameBoard(lvl0);
 
 window.addEventListener("keydown", function (event) {
     event.preventDefault();
@@ -18,14 +9,10 @@ window.addEventListener("keydown", function (event) {
     handlePieceMovement(event.code);
 });
 
-// console.log(pieces.boxes);
-
-
 function findBoxAtPosition(position) {
 
     return boxes.find((box) => box.x === position.x && box.y === position.y);
 }
-
 
 function handlePieceMovement(keycode) {
 
@@ -36,33 +23,18 @@ function handlePieceMovement(keycode) {
         const nextBoxPosition = foundBox.nextPosition(keycode);
         const boxCanMove = verifyPosition(nextBoxPosition) && !findBoxAtPosition(nextBoxPosition);
 
-        if (boxCanMove) {
+        if(boxCanMove) {
             foundBox.moveTo(nextBoxPosition);
             player.moveTo(nextPlayerPosition);
-
-            const caixasCertas = contagemDeCaixasCorretas();
-
-            console.log(caixasCertas);
-
-            if (caixasCertas == numberOfGoals) {
-                setTimeout(levantaPlaquinha, 200);
-            }
+            if(levelCompleted()) setTimeout(() => alert("Você venceu!"), 250);
         }
     }
     else {
         const playerCanMove = verifyPosition(nextPlayerPosition);
-
-        if (playerCanMove) {
+        if (playerCanMove){
             player.moveTo(nextPlayerPosition);
         }
     }
-}
-
-function createBoardPiece(piecePosition, className) {
-    const piece = new Piece(piecePosition.x, piecePosition.y);
-    piece.insertElementInto(className, board)
-
-    return piece;
 }
 
 function handleKeydownEvent(keycode) {
@@ -74,23 +46,18 @@ function handleKeydownEvent(keycode) {
 }
 
 function verifyPosition(position) {
-    let { x: i, y: k } = position;
-    return boardMap[k][i] != '#';
+    let { x,y } = position;
+    return boardMap[y][x] != '#';
 }
 
-function contagemDeCaixasCorretas() {
+function levelCompleted() {
     let count = 0;
 
     for (const position of boxes) {
-        let { x: i, y: k } = position;
+        let { x,y } = position;
 
-        // console.log(i, k);
-        if (boardMap[k][i] === "G") count++;
+        if (boardMap[y][x] === "G") count++;
 
     }
-    return count;
-}
-
-function levantaPlaquinha() {
-    alert('Você Venceu!');
+    return count === numberOfGoals;
 }

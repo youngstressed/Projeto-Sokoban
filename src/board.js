@@ -1,4 +1,4 @@
-import Piece from "./piece";
+import Piece from "./piece.js";
 
 export function buildGameBoard(level) {
     const boardMap = level.trim().split('\n');
@@ -10,10 +10,10 @@ export function buildGameBoard(level) {
     for (let i = 0; i < boardMap.length; i++) {
         const linha = createGameElement('div', 'row', board);
 
-        for (let k = 0; k < boardMap[k].length; k++) {
+        for (let k = 0; k < boardMap[i].length; k++) {
             const celula = createGameElement('div', 'cell', linha);
-            
-            const char = boardMap[k][i];
+
+            const char = boardMap[i][k];
             const position = { x: k, y: i }
 
             if (char === '#') celula.classList.add('wall');
