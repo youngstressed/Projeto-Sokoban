@@ -10,7 +10,7 @@ export function buildGameBoard(level) {
     for (let k = 0; k < boardMap.length; k++) {
         const linha = createGameElement('div', 'row', board);
 
-        for (let i = 0; i < NUM_COLS; i++) {
+        for (let i = 0; i < boardMap[k].length; i++) {
             const celula = createGameElement('div', 'cell', linha);
             const char = boardMap[k][i];
 
