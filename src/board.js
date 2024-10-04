@@ -1,57 +1,48 @@
-import { lvl0, lvl1, lvl2 } from "./level.js";
+import Piece from "./piece.js";
 
-function strig2BoarMap (level) {
-const lines = level.trim().split('\n');
-console.log(lines);
+export function buildGameBoard(level) {
+    const boardMap = level.trim().split('\n');
 
-return lines;
+    const game = document.getElementById('game');
+    const board = createGameElement('div', 'board', game);
+    let numberOfGoals = 0, boxes = [], player = null;
+
+    for (let i = 0; i < boardMap.length; i++) {
+        const linha = createGameElement('div', 'row', board);
+
+        for (let k = 0; k < boardMap[i].length; k++) {
+            const celula = createGameElement('div', 'cell', linha);
+
+            const char = boardMap[i][k];
+            const position = { x: k, y: i }
+
+            if (char === '#') celula.classList.add('wall');
+            if (char === 'P') player = createBoardPiece(position, 'player');
+            if (char === 'B') boxes.push(createBoardPiece(position, 'box'));
+            if (char === ' ') celula.classList.add('remove');
+            if (char === '_') celula.classList.add('remove');
+            if (char === 'G') {
+                numberOfGoals++;
+                celula.classList.add('goal')
+            }
+        }
+    }
+
+    return { boardMap, pieces: { boxes, player }, numberOfGoals };
 }
-
-const boardMap = strig2BoarMap(lvl0, lvl1, lvl2);
-const NUM_ROWS = boardMap.length;
 
 export function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName)
     element.classList.add(className);
     parentNode.append(element);
-    
+
     return element;
 }
+function createBoardPiece(piecePosition, className) {
+    const board = document.querySelector('.board');
+    const piece = new Piece(piecePosition.x, piecePosition.y);
 
-export function buildGameBoard(mapa) {
-    const boardMap = strig2BoarMap(mapa);
-    const pieces = {
-        boxes: []
-    };
-    
-    let numberOfGoals = 0;
-    
-    const game = document.getElementById('game');
-    
-    const board = createGameElement('div', 'board', game);
-    
-    for (let k = 0; k < NUM_ROWS; k++) {
-        const NUM_COLS = boardMap[k].length;
-        const linha = createGameElement('div', 'row', board);
-        
-        for (let i = 0; i < NUM_COLS; i++) {
-            const celula = createGameElement('div', 'cell', linha);
-            const char = boardMap[k][i];
-            const position = { x: i, y: k };
-            
-            
-            if (char === '#') celula.classList.add('wall');
-            // if (char === 'B') celula.classList.add('block');
-            if (char === 'G') {
-                numberOfGoals++;
-                celula.classList.add('goal')
-            };
-            if (char === 'P') pieces.player = position;
-            if (char === 'B') pieces.boxes.push(position);
-            if (char === ' ') celula.classList.add('remove');
-            if (char === '_') celula.classList.add('remove')
-        }
-    }
+    piece.insertElementInto(className, board);
 
-    return { boardMap, pieces, numberOfGoals};
+    return piece;
 }
