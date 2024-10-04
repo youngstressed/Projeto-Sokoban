@@ -12,6 +12,7 @@ export function buildGameBoard(level) {
 
         for (let k = 0; k < boardMap[k].length; k++) {
             const celula = createGameElement('div', 'cell', linha);
+            
             const char = boardMap[k][i];
             const position = { x: k, y: i }
 
