@@ -1,4 +1,4 @@
-import { lvl0, lvl1, lvl2 } from "../level.js";
+import { lvl0, lvl1, lvl2 } from "./level.js";
 
 function strig2BoarMap (level) {
 const lines = level.trim().split('\n');
