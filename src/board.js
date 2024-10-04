@@ -7,12 +7,13 @@ export function buildGameBoard(level) {
     const board = createGameElement('div', 'board', game);
     let numberOfGoals = 0, boxes = [], player = null;
 
-    for (let k = 0; k < boardMap.length; k++) {
+    for (let i = 0; i < boardMap.length; i++) {
         const linha = createGameElement('div', 'row', board);
 
-        for (let i = 0; i < boardMap[k].length; i++) {
+        for (let k = 0; k < boardMap[k].length; k++) {
             const celula = createGameElement('div', 'cell', linha);
             const char = boardMap[k][i];
+            const position = { x: k, y: i }
 
             if (char === '#') celula.classList.add('wall');
             if (char === 'P') player = createBoardPiece(position, 'player');
